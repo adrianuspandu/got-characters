@@ -72,7 +72,7 @@ enum HouseName: String, CaseIterable, Codable {
 }
 
 @Model
-final class House {
+final class House: Comparable {
     var name: HouseName
     var nameString: String {
         name.rawValue.capitalized
@@ -87,6 +87,10 @@ final class House {
         self.logo = name.logo
         self.desc = name.desc
         self.characters = characters
+    }
+    
+    static func < (lhs: House, rhs: House) -> Bool {
+        lhs.nameString < rhs.nameString
     }
 }
 

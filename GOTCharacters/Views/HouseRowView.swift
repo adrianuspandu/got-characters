@@ -13,14 +13,22 @@ struct HouseRowView: View {
         NavigationLink {
             HouseDetailView(house: house)
         } label: {
-            HStack {
+            HStack(spacing: 28) {
+                
                 Image(house.logo)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 64)
                 Text(house.nameString)
-                    .font(.custom("Arial", size: 18))
+                    .font(.title.bold())
+                    .foregroundStyle(.black)
+                
+                Spacer()
             }
+            .padding(.vertical, 12)
+            .padding(.horizontal, 24)
+            .background(Color("Secondary"))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         }
 
     }

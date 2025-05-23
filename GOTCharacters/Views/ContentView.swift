@@ -18,16 +18,18 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List(characters) { character in
-                VStack {
-                    Text(character.fullName)
-                    Text(character.house?.nameString ?? "Others")
+            ScrollView {
+                VStack(spacing: 20) {
+                    ForEach(houses, id: \.self) { house in
+                        HouseRowView(house: house)
+                    }
                 }
             }
-            .task {
-                await bootstrapCharactersAndHouses()
-            }
-            .navigationTitle("GameOfThrones")
+            .scrollIndicators(.hidden)
+        }
+        .padding(.horizontal, 20)
+        .task {
+            await bootstrapCharactersAndHouses()
         }
     }
     
