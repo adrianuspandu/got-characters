@@ -19,15 +19,20 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(houses, id: \.self) { house in
-                        HouseRowView(house: house)
+                VStack(alignment: .leading) {
+                    Text("Houses")
+                        .font(.title.bold())
+                    
+                    VStack(spacing: 20) {
+                        ForEach(houses, id: \.self) { house in
+                            HouseRowView(house: house)
+                        }
                     }
                 }
             }
             .scrollIndicators(.hidden)
+            .padding(.horizontal, 20)
         }
-        .padding(.horizontal, 20)
         .task {
             await bootstrapCharactersAndHouses()
         }
