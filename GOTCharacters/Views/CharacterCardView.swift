@@ -13,28 +13,37 @@ struct CharacterCardView: View {
         NavigationLink {
             CharacterDetailView(character: character)
         } label: {
-            VStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 12) {
+                
                 AsyncImage(url: character.imageUrl) { image in
                     image
                         .resizable()
                         .scaledToFill()
+                        .frame(width: 160, height: 120, alignment: .center)
+                        .clipped()
                 } placeholder: {
                     ProgressView()
+                        .frame(width: 160, height: 120, alignment: .center)
                 }
-                .frame(width: 86, height: 86)
-                .clipShape(Circle())
-                
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text(character.fullName)
-                        .font(.title2.bold())
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.leading)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.black)
                     Text(character.title ?? "No title")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.leading)
+                        .foregroundStyle(Color.black.opacity(0.6))
+                        .font(.callout)
                 }
-                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 8)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
             }
-            .frame(width: 150, height: 180)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 16)
+            .frame(width: 160, height: 220, alignment: .top)
+            .padding(.bottom, 16)
             .background(Color("Secondary"))
             .clipShape(RoundedRectangle(cornerRadius: 10))
         }

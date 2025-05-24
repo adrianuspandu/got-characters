@@ -41,7 +41,7 @@ enum HouseName: String, CaseIterable, Codable {
         case .tyrell:
             return "Tyrell"
         case .others:
-            return "Targaryen"
+            return "Westeros"
         }
     }
     

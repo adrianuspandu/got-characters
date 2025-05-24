@@ -10,13 +10,13 @@ import SwiftUI
 struct HouseDetailView: View {
     var house: House
     let columns = [
-        GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16)
+        GridItem(.adaptive(minimum: 150, maximum: 180)),
+        GridItem(.adaptive(minimum: 150, maximum: 180))
       ]
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 32) {
+            VStack(alignment: .center, spacing: 32) {
                 HouseHeaderView(house: house)
                 
                 VStack(alignment: .leading) {

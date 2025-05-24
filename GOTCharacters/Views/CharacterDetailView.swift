@@ -11,7 +11,40 @@ struct CharacterDetailView: View {
     var character: Character
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.accentColor
+                .ignoresSafeArea(edges: .bottom)
+            
+            Image(character.house?.logo ?? "Westeros")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 300, height: 300, alignment: .center)
+                .opacity(0.05)
+            
+            VStack(spacing: 24) {
+                AsyncImage(url: character.imageUrl) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 150, height: 150, alignment: .center)
+                        .clipped()
+                        .clipShape(Circle())
+                } placeholder: {
+                    ProgressView()
+                        .frame(width: 150, height: 150, alignment: .center)
+                }
+                
+                VStack(spacing: 16) {
+                    Text(character.fullName)
+                    
+                    Text(character.title ?? "No Title")
+                        .font(.callout)
+                }
+                
+                Text("House \(character.house?.nameString ?? "Unknown")")
+            }
+        }
+        .navigationTitle(character.fullName)
     }
 }
 
