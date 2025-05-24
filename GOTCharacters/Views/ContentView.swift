@@ -34,7 +34,7 @@ struct ContentView: View {
                     // MARK: Search Results View
                     VStack(alignment: .leading) {
                         Text("Search Results")
-                            .font(.title.bold())
+                            .font(.custom("Cinzel", size: 24).bold())
                         ScrollView {
                             CharactersGridView(characters: searchResults)
                         }
