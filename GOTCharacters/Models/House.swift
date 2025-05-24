@@ -48,25 +48,25 @@ enum HouseName: String, CaseIterable, Codable {
     var desc: String {
         switch self {
         case .arryn:
-            return "The Arryn family is a prominent noble family in Westeros, known for their loyalty, cunning, and strategic prowess."
+            return "Perched in the impregnable Eyrie, the Arryns live “As High as Honor,” with a white falcon sigil on blue. Isolated by mountains, they uphold strict codes of purity and conduct, often at the cost of political naiveté."
         case .baratheon:
-            return "The Baratheon family is a prominent noble family in Westeros, known for their wealth, power, and long line of succession."
+            return "House Baratheon of Storm’s End rose to power under Robert’s Rebellion and bears the crowned stag sigil as rulers of the Seven Kingdoms. Despite Robert’s charismatic reign, internal splits and rival branches threaten their throne."
         case .greyjoy:
-            return "The Greyjoy family is a prominent noble family in Westeros, known for their isolation, cunning, and long line of succession."
+            return "The Greyjoys of the Iron Islands live by “We Do Not Sow,” plundering by sea under their golden kraken banner. Proud and fiercely independent, they chafe under mainland rule yet are often fractured by rebellions."
         case .lannister:
-            return "The Lannister family is a prominent noble family in Westeros, known for their wealth, power, and long line of succession."
+            return "The Lannisters of Casterly Rock wield immense wealth from their gold mines and live by the saying “A Lannister always pays his debts.” Their golden lion sigil reflects both their pride and the ruthless politicking that pervades their family."
         case .martell:
-            return "The Martell family is a prominent noble family in Westeros, known for their cunning, strategic prowess, and long line of succession."
+            return "Dornish rulers at Sunspear, the Martells live by “Unbowed, Unbent, Unbroken,” reflecting their desert-forged resilience and gender-equal customs. Their red sun-and-spear sigil hints at both their hospitality and their hidden ferocity."
         case .stark:
-            return "The Stark family is a prominent noble family in Westeros, known for their loyalty, cunning, and strategic prowess."
+            return "The Starks of Winterfell are the noble rulers of the North, famed for their unbreakable honor and the motto “Winter Is Coming.” Their grey direwolf sigil and fierce loyalty symbolize resilience forged in the harsh northern climate."
         case .targaryen:
-            return "The Targaryen family is a prominent noble family in Westeros, known for their dragons, power, and long line of succession."
+            return "Once conquerors of all Westeros, the Targaryens are dragonlords in exile, defined by their red three-headed dragon sigil and silver-gold hair. Though overthrown, surviving heirs carry an indomitable claim to the Iron Throne."
         case .tully:
-            return "The Tully family is a prominent noble family in Westeros, known for their loyalty, cunning, and strategic prowess."
+            return "The Tullys of Riverrun rule the Riverlands with the motto “Family, Duty, Honor” and a leaping trout sigil. Strategically caught between warring neighbors, they balance peacemaking with the harsh realities of conflict."
         case .tyrell:
-            return "The Tyrell family is a prominent noble family in Westeros, known for their wealth, power, and long line of succession."
+            return "House Tyrell of Highgarden controls the fertile Reach, symbolized by a golden rose and the words “Growing Strong.” Masters of courtly intrigue, they weave alliances through marriages to extend their influence."
         case .others:
-            return "Unknown"
+            return "Characters who serve no Great House include Free Folk, smallfolk, maesters, knights of minor holds and sellswords. Unbound by grand sigils, their varied backgrounds and personal quests often tip the balance in unexpected ways."
         }
     }
 }

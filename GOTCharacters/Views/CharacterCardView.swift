@@ -28,15 +28,15 @@ struct CharacterCardView: View {
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text(character.fullName)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.leading)
-                        .fontWeight(.bold)
+                        .font(.custom("Cinzel", size: 16).bold())
                         .foregroundStyle(.black)
-                    Text(character.title ?? "No title")
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
+                    Text(character.title ?? "No title")
                         .foregroundStyle(Color.black.opacity(0.6))
-                        .font(.callout)
+                        .font(.custom("Cinzel", size: 12))
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.leading)
                 }
                 .padding(.horizontal, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)

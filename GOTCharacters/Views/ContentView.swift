@@ -15,23 +15,64 @@ struct ContentView: View {
     @Query var houses: [House]
     
     @State private var houseMap: [HouseName: House] = [:]
+    @State private var searchText: String = ""
+    
+    var searchResults: [Character] {
+        return characters.filter { $0.fullName.contains(searchText)}
+    }
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    Text("Houses")
-                        .font(.title.bold())
+            // MARK: Header View
+            HomeHeaderView(searchText: $searchText)
+            
+            // MARK: Search Results View
+            if !searchText.isEmpty {
+                if !searchResults.isEmpty {
                     
-                    VStack(spacing: 20) {
-                        ForEach(houses, id: \.self) { house in
-                            HouseRowView(house: house)
+                    // MARK: Search Results View
+                    VStack(alignment: .leading) {
+                        Text("Search Results")
+                            .font(.title.bold())
+                        ScrollView {
+                            CharactersGridView(characters: searchResults)
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    
+                } else {
+                    
+                    // MARK: No Search Results
+                    Text("No Search Results")
+                        .frame(maxHeight: .infinity)
+                    
+                }
+                
+            } else {
+                
+                // MARK: HomeScrollView
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 24) {
+                        
+                        // MARK: Popular Horizontal Scroll View
+                        PopularScrollView(characters: characters)
+                        
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Houses")
+                                .font(.custom("Cinzel", size: 24).bold())
+                            
+                            VStack(spacing: 20) {
+                                ForEach(houses, id: \.self) { house in
+                                    HouseRowView(house: house)
+                                }
+                            }
                         }
                     }
                 }
+                .scrollIndicators(.hidden)
+                .padding(.horizontal, 20)
             }
-            .scrollIndicators(.hidden)
-            .padding(.horizontal, 20)
+            
         }
         .task {
             await bootstrapCharactersAndHouses()

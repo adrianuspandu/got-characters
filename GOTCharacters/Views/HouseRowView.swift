@@ -20,7 +20,7 @@ struct HouseRowView: View {
                     .scaledToFit()
                     .frame(width: 64)
                 Text(house.nameString)
-                    .font(.title.bold())
+                    .font(.custom("Cinzel", size: 24).bold())
                     .foregroundStyle(.black)
                 
                 Spacer()

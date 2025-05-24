@@ -12,36 +12,49 @@ struct CharacterDetailView: View {
     
     var body: some View {
         ZStack {
-            Color.accentColor
-                .ignoresSafeArea(edges: .bottom)
             
-            Image(character.house?.logo ?? "Westeros")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 300, height: 300, alignment: .center)
-                .opacity(0.05)
+            VStack {
+                Image(character.house?.logo ?? "Westeros")
+                    .resizable()
+                    .scaledToFill()
+                    .scaleEffect(1.2)
+                    .frame(width: UIScreen.main.bounds.width, height: 200, alignment: .center)
+                    .opacity(0.4)
+                    .clipped()
+                
+                Spacer()
+            }
             
             VStack(spacing: 24) {
+                Spacer().frame(height: 100)
                 AsyncImage(url: character.imageUrl) { image in
                     image
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 150, height: 150, alignment: .center)
+                        .frame(width: 200, height: 200, alignment: .center)
                         .clipped()
                         .clipShape(Circle())
                 } placeholder: {
                     ProgressView()
-                        .frame(width: 150, height: 150, alignment: .center)
+                        .frame(width: 200, height: 200, alignment: .center)
                 }
                 
-                VStack(spacing: 16) {
+                VStack(spacing: 24) {
                     Text(character.fullName)
+                        .font(.custom("Cinzel", size: 40).bold())
+                        .multilineTextAlignment(.center)
                     
                     Text(character.title ?? "No Title")
-                        .font(.callout)
+                        .font(.custom("Cinzel", size: 20))
+                        .foregroundStyle(.secondary)
                 }
+                .frame(maxWidth: 250, alignment: .center)
+                
+                Spacer()
                 
                 Text("House \(character.house?.nameString ?? "Unknown")")
+                    .font(.custom("Cinzel", size: 20))
+                
             }
         }
         .navigationTitle(character.fullName)

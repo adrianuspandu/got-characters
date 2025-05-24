@@ -19,9 +19,10 @@ struct HouseHeaderView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 Text("House \(house.nameString)")
-                    .font(.title)
+                    .font(.custom("Cinzel", size: 24).bold())
                 
                 Text(house.desc)
+                    .font(.custom("EB Garamond", size: 16))
             }
         }
         .padding(.vertical, 32)

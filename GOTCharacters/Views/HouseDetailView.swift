@@ -9,10 +9,6 @@ import SwiftUI
 
 struct HouseDetailView: View {
     var house: House
-    let columns = [
-        GridItem(.adaptive(minimum: 150, maximum: 180)),
-        GridItem(.adaptive(minimum: 150, maximum: 180))
-      ]
     
     var body: some View {
         ScrollView {
@@ -21,13 +17,9 @@ struct HouseDetailView: View {
                 
                 VStack(alignment: .leading) {
                     Text("Characters")
-                        .font(.title.bold())
+                        .font(.custom("Cinzel", size: 24).bold())
                     
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(house.characters) { character in
-                            CharacterCardView(character: character)
-                        }
-                    }
+                    CharactersGridView(characters: house.characters)
                 }
                 .padding(.horizontal, 20)
             }
