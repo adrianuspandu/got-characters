@@ -22,6 +22,7 @@ struct ContentView: View {
     }
     
     var body: some View {
+        
         NavigationStack {
             // MARK: Header View
             HomeHeaderView(searchText: $searchText)

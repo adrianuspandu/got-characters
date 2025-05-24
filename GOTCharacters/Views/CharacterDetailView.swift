@@ -42,11 +42,14 @@ struct CharacterDetailView: View {
                 VStack(spacing: 24) {
                     Text(character.fullName)
                         .font(.custom("Cinzel", size: 40).bold())
+                        .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.center)
+                        .lineLimit(nil)
                     
                     Text(character.title ?? "No Title")
                         .font(.custom("Cinzel", size: 20))
                         .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
                 }
                 .frame(maxWidth: 250, alignment: .center)
                 
