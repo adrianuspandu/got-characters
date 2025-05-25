@@ -1,4 +1,5 @@
 # Game Of Thrones Characters
+A SwiftUI Application that displays great houses and characters in the Game Of Thrones TV Series. The data was bootstrapped on first launch from [Thrones API](https://thronesapi.com)
 
 ## Demo
 [Link to video demo](https://youtube.com/shorts/MjwrR9vdY_Y)
